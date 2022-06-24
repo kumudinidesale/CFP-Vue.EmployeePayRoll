@@ -12,7 +12,7 @@
             <th>Actions</th>
           </tr>
              <tr v-for="employee in employees" :key="employee.id">
-                        <td><img src="../assets/Eclipse-1.1.png" alt="" />
+                        <td><img :src='`../assets/${employee.profilePic}`'/>
                     </td>
                         <td> {{employee.name }}</td>
                         <td> {{employee.gender}}</td>
@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         getEmployees(){
-            AddressBookService.getAllEmployees().then((response) => {
+            EmployeeService.getAllEmployees().then((response) => {
               console.log(response.data.data);
                 this.employees = response.data.data;   
             });
